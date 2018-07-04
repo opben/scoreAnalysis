@@ -6,12 +6,10 @@ h2 {
     margin: 0;
     letter-spacing: 1px;
     font-size: 1.5em;
-    color: #fff;
 }
 
 a {
     text-decoration: none;
-    color: #fff;
 }
 
 button {
@@ -19,7 +17,7 @@ button {
     padding: 10px 50px;
     cursor: pointer;
     background-color: #f59649;
-    color: #fff;
+    /*color: #fff;*/
 }
 
 @media only screen and (max-width: 450px) {
@@ -30,6 +28,14 @@ button {
 
 button:hover {
     background-color: #ff6e3e;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
 }
 
 
@@ -60,15 +66,20 @@ button:hover {
     margin-left: 30%;
 }
 
-/*遮罩区*/
-.mask {
-    position: fixed;
-    display: none;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, .4);
+.content .search-group {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*内容开始*/
+.content {
+    margin-left: 150px;
+    margin-top: 70px;
+    padding: 3% 8%;
+}
+
+.content .tab-content {
+    margin: 5% 0;
 }
 
 /*侧边导航栏*/
@@ -98,8 +109,10 @@ button:hover {
 }
 
 .slideBar ul li a {
+    text-decoration: none;
     display: inline-block;
     width: 100%;
+    font-size: 15px;
     color: #fff;
 }
 /*侧边导航栏结束*/
