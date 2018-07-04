@@ -1,0 +1,105 @@
+body {
+    font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+}
+
+h2 {
+    margin: 0;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+button {
+    border: none;
+    padding: 10px 50px;
+    cursor: pointer;
+    background-color: #f59649;
+    color: #fff;
+}
+
+@media only screen and (max-width: 450px) {
+    button {
+        padding: 10px 40px;
+    }
+}
+
+button:hover {
+    background-color: #ff6e3e;
+}
+
+
+/*header*/
+.toolbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-left: 150px;
+    height: 70px;
+    box-shadow: 0 4px 10px -2px rgba(0,0,0,0.05);
+    font-size: 1.5em;
+    /*text-align: center;*/
+    line-height: 70px;
+    letter-spacing: 1px;
+    color: #000;
+    background-color: #fff;
+}
+
+.toolbar img {
+    position: relative;
+    top: 7px;
+    left: 20px;
+}
+
+.toolbar .title {
+    display: inline-block;
+    margin-left: 30%;
+}
+
+/*遮罩区*/
+.mask {
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .4);
+}
+
+/*侧边导航栏*/
+.slideBar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    /*left: -280px;*/
+    left: 0;
+    width: 150px;
+    background: #00bcd4;
+    transition: right .5s;
+}
+
+.slideBar ul {
+    list-style: none;
+    margin: 10% 0 0 0;
+    padding: 0;
+}
+
+.slideBar ul li {
+    padding: 15px 0 10px 20%;
+}
+
+.slideBar ul li:hover {
+    background: rgba(0,0,0,0.1);
+}
+
+.slideBar ul li a {
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+}
+/*侧边导航栏结束*/
