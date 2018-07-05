@@ -21,10 +21,24 @@
 
     <!--内容开始-->
     <div class="content">
-        <div class="input-group">
-            <p>选择成绩excel文件上传：</p>
-            <input type="file" name="excel">
-        </div>
+        {% block content %}
+        <form class="form-inline" method="post" role="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>请选择成绩excel文件：</p>
+            <div class="form-group">
+                <input type="file" name="excel" id="inputfile">
+            </div>
+            <button type="submit" name="submit" class="btn btn-default">上传</button>
+        </form>
+        {% if res %}
+            <div class="suc-info">
+                <img src="../static/img/成功.png">
+                <p>上传成功~</p>
+            </div>
+        {% endif %}
+
+        <p>{{test}}</p>
+        {% endblock %}
     </div>
     <!--内容结束-->
 
@@ -34,13 +48,15 @@
 <div class="slideBar">
     <!--<div class="toolbar-left">MENU</div>-->
     <ul>
-        <li><a href="#">成绩上传</a></li>
-        <li><a href="scoreQuery.html">成绩查询</a></li>
-        <li><a href="knowledgePoint.html">知识点输入</a></li>
-        <li><a href="scoreAnalysis.html">成绩分析</a></li>
+        <li><a href="{% url 'scoreSubmit:scoreSubmit' %}">成绩上传</a></li>
+        <li><a href="{% url 'scoreQuery:scoreQuery' %}">成绩查询</a></li>
+        <li><a href="{% url 'knowledgePoint:knowledgePoint' %}">知识点输入</a></li>
+        <li><a href="{% url 'scoreAna:scoreAna' %}">成绩统计数据</a></li>
+        <li><a href="{% url 'scoreCharts:scoreCharts' %}">成绩分析图</a></li>
     </ul>
 </div>
-<script src="../static/js/jquery.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../static/js/main.js"></script>
 </body>
 </html>

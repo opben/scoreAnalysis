@@ -2,6 +2,14 @@ body {
     font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
 }
 
+th {
+    text-align: center;
+}
+
+tr {
+    text-align: center;
+}
+
 h2 {
     margin: 0;
     letter-spacing: 1px;
@@ -80,6 +88,25 @@ button:hover {
 }
 
 .content .tab-content {
+    margin: 5% 0;
+}
+
+.content .suc-info {
+    text-align: center;
+}
+
+.content .suc-info img {
+    margin: 50px 0 20px 0;
+}
+
+
+.content .suc-info p {
+    /*margin: 50px 0;*/
+    font-size: 2em;
+    color: #337ab7;
+}
+
+.query-result {
     margin: 5% 0;
 }
 

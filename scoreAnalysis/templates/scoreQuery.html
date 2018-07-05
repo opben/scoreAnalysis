@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>成绩分析系统</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/reset.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
-<body>
-<div class="main-wrapper">
-    <!--页头开始-->
-    <header>
-        <div class="toolbar">
-            <img class="showSlideBar" src="../static/img/目录.png">
-            <span class="title">成绩数据统计分析系统</span>
-        </div>
-    </header>
-    <!--页头结束-->
+{% extends "index.html" %}
 
     <!--内容开始-->
-    <div class="content">
+    {% block content %}
         <div class="search-group">
             <ul id="myTab" class="nav nav-tabs">
                 <li class="active"><a href="#stu" data-toggle="tab">按学号查询</a></li>
@@ -29,49 +10,103 @@
 
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="stu">
-                    <form class="bs-example bs-example-form" role="form">
-                        <div class="col-lg-3">
+                    <form method="post" class="bs-example bs-example-form" role="form">
+                        {% csrf_token %}
+                        <div class="col-lg-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入学号...">
+                                <input type="text" name="stuId" class="form-control" placeholder="请输入学号...">
                                 <span class="input-group-btn">
-						            <button class="btn btn-default" type="button">查询</button>
+						            <button class="btn btn-default" type="submit" name="submit_stu">查询</button>
 					            </span>
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
-                    </form>
+                    </form><br>
+
+                    {% if res1 %}
+                    <div class="query-result">
+                        <table class="table table-hover">
+                            <caption>查询结果</caption>
+                            <thead>
+                            <tr>
+                                <th>学号</th>
+                                <th>选择1-10</th>
+                                <th>填空11-16</th>
+                                <th>17</th>
+                                <th>18</th>
+                                <th>19</th>
+                                <th>20</th>
+                                <th>21</th>
+                                <th>22</th>
+                                <th>23</th>
+                                <th>24</th>
+                                <th>25</th>
+                                <th>26</th>
+                                <th>27</th>
+                                <th>总分</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in res1 %}
+                            <tr>
+                                <td>{{ i.stuId }}</td>
+                                <td>{{ i.choice }}</td>
+                                <td>{{ i.blank }}</td>
+                                <td>{{ i.q17 }}</td>
+                                <td>{{ i.q18 }}</td>
+                                <td>{{ i.q19 }}</td>
+                                <td>{{ i.q20 }}</td>
+                                <td>{{ i.q21 }}</td>
+                                <td>{{ i.q22 }}</td>
+                                <td>{{ i.q23 }}</td>
+                                <td>{{ i.q24 }}</td>
+                                <td>{{ i.q25 }}</td>
+                                <td>{{ i.q26 }}</td>
+                                <td>{{ i.q27 }}</td>
+                                <td>{{ i.total }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
+
                 </div>
                 <div class="tab-pane fade" id="que">
-                    <form class="bs-example bs-example-form" role="form">
-                        <div class="col-lg-3">
+                    <form method="post" class="bs-example bs-example-form" role="form">
+                        {% csrf_token %}
+                        <div class="col-lg-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入题号...">
+                                <input type="text" name="que" class="form-control" placeholder="请输入学号+题号,用英文逗号分隔...">
                                 <span class="input-group-btn">
-						            <button class="btn btn-default" type="button">查询</button>
+						            <button class="btn btn-default" type="submit" name="submit_que">查询</button>
 					            </span>
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
-                    </form>
+                    </form><br>
+
+                    {% if res %}
+                    <div class="query-result">
+                        <table class="table table-hover">
+                            <caption>查询结果</caption>
+                            <thead>
+                            <tr>
+                                <th>学号</th>
+                                <th>{{ queId }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ stuId }}</td>
+                                <td>{{ qScore }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
+
                 </div>
             </div>
+        </div><br>
 
-        </div>
-    </div>
+    {% endblock %}
     <!--内容结束-->
-
-</div>
-
-<!--侧边导航栏-->
-<div class="slideBar">
-    <!--<div class="toolbar-left">MENU</div>-->
-    <ul>
-        <li><a href="index.html">成绩上传</a></li>
-        <li><a href="scoreQuery.html">成绩查询</a></li>
-        <li><a href="knowledgePoint.html">知识点输入</a></li>
-        <li><a href="scoreAnalysis.html">成绩分析</a></li>
-    </ul>
-</div>
-<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../static/js/main.js"></script>
-</body>
-</html>

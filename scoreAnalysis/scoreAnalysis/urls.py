@@ -14,8 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('scoreSubmit.html', include('scoreSubmit.urls', namespace='scoreSubmit')),
+    path('scoreQuery.html', include('scoreQuery.urls', namespace='scoreQuery')),
+    path('knowledgePoint.html', include('knowledgePoint.urls', namespace='knowledgePoint')),
+    path('scoreAnalysis.html', include('scoreAna.urls', namespace='scoreAna')),
+    path('scoreCharts.html', include('scoreCharts.urls', namespace='scoreCharts')),
+
 ]
