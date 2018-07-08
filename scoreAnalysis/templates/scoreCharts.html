@@ -54,7 +54,7 @@
                         myChart1.setOption(option);
                     </script>
                 </div>
-                <div id="choice" class="charts tab-pane fade" >
+                <div id="choice" class="charts tab-pane fade in active" >
                     <script type="text/javascript">
                             // 基于准备好的dom，初始化echarts实例
                             var myChart2 = echarts.init(document.getElementById('choice'));
@@ -81,7 +81,7 @@
                             myChart2.setOption(option);
                         </script>
                 </div>
-                <div class="charts fade" id="blank">
+                <div class="charts tab-pane fade in active" id="blank">
                     <script type="text/javascript">
                         // 基于准备好的dom，初始化echarts实例
                         var myChart3 = echarts.init(document.getElementById('blank'));
@@ -98,7 +98,7 @@
                             series: [{
                                 symbolSize: 5,
                                 name:'成绩',
-                                data: {{ choice|safe }},
+                                data: {{ blank|safe }},
                                 type: 'scatter'
                             }]
                             };
@@ -108,38 +108,291 @@
                         myChart3.setOption(option);
                     </script>
                 </div>
-                <div class="charts fade" id="q17">
+                <div class="charts tab-pane fade in active" id="q17">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart4 = echarts.init(document.getElementById('q17'));
 
+                        option = {
+                            title: {
+                                text: '第17题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q17|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart4.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q18">
+                <div class="charts tab-pane fade in active" id="q18">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart5 = echarts.init(document.getElementById('q18'));
 
+                        option = {
+                            title: {
+                                text: '第18题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q18|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart5.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q19">
+                <div class="charts tab-pane fade in active" id="q19">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart6 = echarts.init(document.getElementById('q19'));
 
+                        option = {
+                            title: {
+                                text: '第19题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q19|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart6.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q20">
+                <div class="charts tab-pane fade in active" id="q20">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart7 = echarts.init(document.getElementById('q20'));
 
+                        option = {
+                            title: {
+                                text: '第20题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q20|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart7.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q21">
+                <div class="charts tab-pane fade in active" id="q21">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart8 = echarts.init(document.getElementById('q21'));
 
+                        option = {
+                            title: {
+                                text: '第21题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q21|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart8.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q22">
+                <div class="charts tab-pane fade in active" id="q22">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart9 = echarts.init(document.getElementById('q22'));
 
+                        option = {
+                            title: {
+                                text: '第22题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q22|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart9.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q23">
+                <div class="charts tab-pane fade in active" id="q23">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart10 = echarts.init(document.getElementById('q23'));
 
+                        option = {
+                            title: {
+                                text: '第23题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q23|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart10.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q24">
+                <div class="charts tab-pane fade in active" id="q24">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart11 = echarts.init(document.getElementById('q24'));
 
+                        option = {
+                            title: {
+                                text: '第24题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q24|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart11.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q25">
+                <div class="charts tab-pane fade in active" id="q25">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart12 = echarts.init(document.getElementById('q25'));
 
+                        option = {
+                            title: {
+                                text: '第25题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q25|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart12.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q26">
+                <div class="charts tab-pane fade in active" id="q26">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart13 = echarts.init(document.getElementById('q26'));
 
+                        option = {
+                            title: {
+                                text: '第26题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q26|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart13.setOption(option);
+                    </script>
                 </div>
-                <div class="charts fade" id="q27">
+                <div class="charts tab-pane fade in active" id="q27">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart14 = echarts.init(document.getElementById('q27'));
 
+                        option = {
+                            title: {
+                                text: '第27题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ q27|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart14.setOption(option);
+                    </script>
                 </div>
 
             </div>

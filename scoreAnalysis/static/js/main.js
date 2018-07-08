@@ -3,16 +3,20 @@
 
     let $slideBar = $(".slideBar"),   //侧边栏
         $toolbar = $(".toolbar"),
+        $content = $(".content"),
         $menu = $(".showSlideBar"); //icon
 
     function showBar() {
         $slideBar.css('left', 0); //修改CSS
         $toolbar.css('marginLeft', $slideBar.width());
+        $content.css('marginLeft', 150);
+
     }
 
     function hideBar() {
         $slideBar.css('left', - $slideBar.width()); //修改CSS
         $toolbar.css('marginLeft', 0);
+        $content.css('marginLeft', 0);
     }
 
     // 点击menu隐藏菜单，再次点击显示。这么简单的逻辑改了好久...
