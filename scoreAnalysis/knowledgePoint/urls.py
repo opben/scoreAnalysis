@@ -4,5 +4,5 @@ from . import views
 
 app_name = 'knowledgePoint'
 urlpatterns=[
-    re_path(r'', views.knowledgePoint, name='knowledgePoint'),
+    re_path(r'', views.knowledgePointF, name='knowledgePoint'),
 ]

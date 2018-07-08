@@ -8,34 +8,65 @@
 
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active col-md-6" id="input">
-                    <form class="bs-example bs-example-form" role="form">
+                    <form method="post" class="bs-example bs-example-form" role="form">
                         {% csrf_token %}
                         <div class="input-group ">
                             <span class="input-group-addon ">知识点</span>
-                            <input type="text" class="form-control" placeholder="请输入知识点...">
+                            <input type="text" name="kpName" class="form-control" placeholder="请输入知识点...">
                         </div><br>
                         <div class="input-group">
                             <span class="input-group-addon">题&nbsp;&nbsp;&nbsp;&nbsp;号</span>
-                            <input type="text" class="form-control" placeholder="请输入对应题号，用英文逗号分隔...">
+                            <input type="text" name="queId" class="form-control" placeholder="请输入对应题号，用英文逗号分隔...">
                         </div><br>
                         <div>
-                            <button type="button" class="btn btn-primary left">确认提交</button>
-                            <button type="button" class="btn btn-warning right">重新填写</button>
+                            <button type="submit" name="submit" class="btn btn-primary left">确认提交</button>
+                            <button type="submit" class="btn btn-warning right">重新填写</button>
                         </div>
                     </form>
+                    {% if res %}
+                    <div class="suc-info">
+                        <img src="../static/img/成功.png">
+                        <p>提交成功~</p>
+                    </div>
+                    {% endif %}
                 </div>
                 <div class="tab-pane fade" id="view">
-                    <form class="bs-example bs-example-form" role="form">
+                    <form method="post" class="bs-example bs-example-form" role="form">
                         {% csrf_token %}
                         <div >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入题号或知识点...">
+                                <input type="text" name="queId" class="form-control" placeholder="按题号查询：请输入题号...">
                                 <span class="input-group-btn">
-						            <button class="btn btn-default" type="button">查&nbsp;询</button>
+						            <button class="btn btn-default" type="submit" name="query_kno">查&nbsp;询</button>
+					            </span>
+                            </div><br>
+                            <div class="input-group">
+                                <input type="text" name="knoId" class="form-control" placeholder="按知识点查询：请输入知识点...">
+                                <span class="input-group-btn">
+						            <button class="btn btn-default" type="submit" name="query_queId">查&nbsp;询</button>
 					            </span>
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
                     </form>
+                    {% if res2 %}
+                        <div class="query-result">
+                            <table class="table table-hover">
+                                <caption>查询结果</caption>
+                                <thead>
+                                <tr>
+                                    <th>题号</th>
+                                    <th>知识点</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ queId }}</td>
+                                    <td>{{ kpName }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 

@@ -32,7 +32,7 @@ def scoreQuery(request):
             inp = i['que'].split(',')
             stuId = inp[0]
             queId = inp[1]
-            res = score.objects.values(queId).filter(stuId=stuId)[0]
+            res = score.objects.values(queId).filter(stuId=stuId)[0] # 取出一列
             qScore = res[queId]
             return render(request, "scoreQuery.html", {'res':res, 'queId':queId, 
                                                     'stuId':stuId, 'qScore':qScore})

@@ -1,7 +1,151 @@
 {% extends "index.html" %}
-
     <!--内容开始-->
     {% block content %}
+
+        <div class="search-group">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active"><a href="#total" data-toggle="tab">总分</a></li>
+                <li><a href="#choice" data-toggle="tab">选择</a></li>
+                <li><a href="#blank" data-toggle="tab">填空</a></li>
+                <li><a href="#q17" data-toggle="tab">17</a></li>
+                <li><a href="#q18" data-toggle="tab">18</a></li>
+                <li><a href="#q19" data-toggle="tab">19</a></li>
+                <li><a href="#q20" data-toggle="tab">20</a></li>
+                <li><a href="#q21" data-toggle="tab">21</a></li>
+                <li><a href="#q22" data-toggle="tab">22</a></li>
+                <li><a href="#q23" data-toggle="tab">23</a></li>
+                <li><a href="#q24" data-toggle="tab">24</a></li>
+                <li><a href="#q25" data-toggle="tab">25</a></li>
+                <li><a href="#q26" data-toggle="tab">26</a></li>
+                <li><a href="#q27" data-toggle="tab">27</a></li>
+            </ul>
+
+            <!--<p>{{choice}}</p>-->
+
+            <div id="myTabContent" class="tab-content">
+                <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts-en.common.js"></script>
+                <div id="total" class="charts tab-pane fade in active">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart1 = echarts.init(document.getElementById('total'));
+
+                        // 指定图表的配置项和数据
+                        var option = {
+                            title: {
+                                text: '学生总成绩分布图'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:['人数']
+                            },
+                            xAxis: {
+                                data: ["0-10分","11-20分","21-30分","31-40分","41-50分",
+                                    "51-60分","61-70分","71-80分","81-90分","91-100分"]
+                            },
+                            yAxis: {},
+                            series: [{
+                                name: '人数',
+                                type: 'bar',
+                                data: {{ res }}
+                        }]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart1.setOption(option);
+                    </script>
+                </div>
+                <div id="choice" class="charts tab-pane fade" >
+                    <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myChart2 = echarts.init(document.getElementById('choice'));
+
+                            option = {
+                                title: {
+                                    text: '选择题成绩分布图'
+                                },
+                                legend: {
+                                    data:['成绩']
+                                },
+                                xAxis: {},
+                                yAxis: {},
+                                series: [{
+                                    symbolSize: 5,
+                                    name:'成绩',
+                                    data: {{ choice|safe }},
+                                    type: 'scatter'
+                                }]
+                            };
+
+
+                            // 使用刚指定的配置项和数据显示图表。
+                            myChart2.setOption(option);
+                        </script>
+                </div>
+                <div class="charts fade" id="blank">
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart3 = echarts.init(document.getElementById('blank'));
+
+                        option = {
+                            title: {
+                                text: '填空题成绩分布图'
+                            },
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {},
+                            yAxis: {},
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ choice|safe }},
+                                type: 'scatter'
+                            }]
+                            };
+
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart3.setOption(option);
+                    </script>
+                </div>
+                <div class="charts fade" id="q17">
+
+                </div>
+                <div class="charts fade" id="q18">
+
+                </div>
+                <div class="charts fade" id="q19">
+
+                </div>
+                <div class="charts fade" id="q20">
+
+                </div>
+                <div class="charts fade" id="q21">
+
+                </div>
+                <div class="charts fade" id="q22">
+
+                </div>
+                <div class="charts fade" id="q23">
+
+                </div>
+                <div class="charts fade" id="q24">
+
+                </div>
+                <div class="charts fade" id="q25">
+
+                </div>
+                <div class="charts fade" id="q26">
+
+                </div>
+                <div class="charts fade" id="q27">
+
+                </div>
+
+            </div>
+
+        </div>
+
 
 
     {% endblock %}
