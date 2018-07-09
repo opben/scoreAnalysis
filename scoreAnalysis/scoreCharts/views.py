@@ -48,66 +48,23 @@ def scoreCharts(request):
         for i in range(len(blank)):
             bla.append([i,blank[i]['blank']])
 
-        q17 = score.objects.values('q17').order_by("q17")  
-        d17 = []
-        for i in range(len(q17)):
-            d17.append([i,q17[i]['q17']])
+        # 以下处理17-27题
+        a = b = c = d = e = f = g = h = i = g = k = 0
+        queId = [a,b,c,d,e,f,g,h,i,g,k]
+        res = []
 
-        q18 = score.objects.values('q18').order_by("q18")  
-        d18 = []
-        for i in range(len(q18)):
-            d18.append([i,q18[i]['q18']])
+        for i in range(len(queId)):
+            ID = 'q' + str(i + 17)
+            queId[i] = score.objects.values(ID).order_by(ID)  
+            tmp = []
+            for j in range(len(queId[i])):
+                tmp.append([j,queId[i][j][ID]])
+            res.append(tmp)
 
-        q19 = score.objects.values('q19').order_by("q19")  
-        d19 = []
-        for i in range(len(q19)):
-            d19.append([i,q19[i]['q19']])
-
-        q20 = score.objects.values('q20').order_by("q20")  
-        d20 = []
-        for i in range(len(q20)):
-            d20.append([i,q20[i]['q20']])
-
-        q21 = score.objects.values('q21').order_by("q21")  
-        d21 = []
-        for i in range(len(q21)):
-            d21.append([i,q21[i]['q21']])
-
-        q22 = score.objects.values('q22').order_by("q22")  
-        d22 = []
-        for i in range(len(q22)):
-            d22.append([i,q22[i]['q22']])
-
-        q23 = score.objects.values('q23').order_by("q23")  
-        d23 = []
-        for i in range(len(q23)):
-            d23.append([i,q23[i]['q23']])
-
-        q24 = score.objects.values('q24').order_by("q24")  
-        d24 = []
-        for i in range(len(q24)):
-            d24.append([i,q24[i]['q24']])
-
-        q25 = score.objects.values('q25').order_by("q25")  
-        d25 = []
-        for i in range(len(q25)):
-            d25.append([i,q25[i]['q25']])
-
-        q26 = score.objects.values('q26').order_by("q26")  
-        d26 = []
-        for i in range(len(q26)):
-            d26.append([i,q26[i]['q26']])
-
-        q27 = score.objects.values('q27').order_by("q27")  
-        d27 = []
-        for i in range(len(q27)):
-            d27.append([i,q27[i]['q27']])
-        
         return render(request,"scoreCharts.html",{'res':total, 'total2':toa, 'choice':cho,
-                                                'blank':bla, 'q17':d17,'q18':d18, 'q19':d19,
-                                                 'q20':d20, 'q21':d21, 'q22':d22,'q23':d23,
-                                                 'q24':d24, 'q25':d25, 'q26':d26, 'q27':d27})    
+                                                'blank':bla, 'q17':res[0],'q18':res[1], 'q19':res[2],
+                                                 'q20':res[3], 'q21':res[4], 'q22':res[5],'q23':res[6],
+                                                 'q24':res[7], 'q25':res[8], 'q26':res[9], 'q27':res[10]}) 
 
     if request.method == "POST":
         pass
-
