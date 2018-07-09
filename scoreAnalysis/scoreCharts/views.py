@@ -33,6 +33,11 @@ def scoreCharts(request):
         n91_100 = score.objects.filter(total__range = (91,100)).count()
         total = [n0_10, n11_20, n21_30, n31_40, n41_50, n51_60, n61_70, n71_80, n81_90, n91_100]
 
+        total2 = score.objects.values('total').order_by("total")  # 选择题图，以下类似
+        toa = []
+        for i in range(len(total2)):
+            toa.append([i,total2[i]['total']])
+
         choice = score.objects.values('choice').order_by("choice")  # 选择题图，以下类似
         cho = []
         for i in range(len(choice)):
@@ -98,9 +103,10 @@ def scoreCharts(request):
         for i in range(len(q27)):
             d27.append([i,q27[i]['q27']])
         
-        return render(request,"scoreCharts.html",{'res':total, 'choice':cho, 'blank':bla, 'q17':d17,
-                                                'q18':d18, 'q19':d19, 'q20':d20, 'q21':d21, 'q22':d22,
-                                                'q23':d23, 'q24':d24, 'q25':d25, 'q26':d26, 'q27':d27})    
+        return render(request,"scoreCharts.html",{'res':total, 'total2':toa, 'choice':cho,
+                                                'blank':bla, 'q17':d17,'q18':d18, 'q19':d19,
+                                                 'q20':d20, 'q21':d21, 'q22':d22,'q23':d23,
+                                                 'q24':d24, 'q25':d25, 'q26':d26, 'q27':d27})    
 
     if request.method == "POST":
         pass

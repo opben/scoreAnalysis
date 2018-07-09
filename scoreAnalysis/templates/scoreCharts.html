@@ -4,7 +4,8 @@
 
         <div class="search-group">
             <ul id="myTab" class="nav nav-tabs">
-                <li class="active"><a href="#total" data-toggle="tab">总分</a></li>
+                <li class="active"><a href="#total" data-toggle="tab">分段统计</a></li>
+                <li><a href="#total2" data-toggle="tab">总分</a></li>
                 <li><a href="#choice" data-toggle="tab">选择</a></li>
                 <li><a href="#blank" data-toggle="tab">填空</a></li>
                 <li><a href="#q17" data-toggle="tab">17</a></li>
@@ -32,7 +33,7 @@
                         // 指定图表的配置项和数据
                         var option = {
                             title: {
-                                text: '学生总成绩分布图'
+                                text: '学生总成绩分段统计图'
                             },
                             tooltip: {},
                             legend: {
@@ -54,7 +55,48 @@
                         myChart1.setOption(option);
                     </script>
                 </div>
-                <div id="choice" class="charts tab-pane fade in active" >
+                <div class="charts tab-pane fade in active" id="total2" >
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart15 = echarts.init(document.getElementById('total2'));
+
+                        option = {
+                            title: {
+                                text: '总成绩分布图'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data:['成绩']
+                            },
+                            xAxis: {
+                                splitLine: {
+                                    lineStyle: {
+                                        type: 'dashed'
+                                    }
+                                }
+                            },
+                            yAxis: {
+                                splitLine: {
+                                    lineStyle: {
+                                        type: 'dashed'
+                                    }
+                                },
+                                scale: true
+                            },
+                            series: [{
+                                symbolSize: 5,
+                                name:'成绩',
+                                data: {{ total2|safe }},
+                        type: 'scatter'
+                        }]
+                        };
+
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart15.setOption(option);
+                    </script>
+                </div>
+                <div class="charts tab-pane fade in active" id="choice" >
                     <script type="text/javascript">
                             // 基于准备好的dom，初始化echarts实例
                             var myChart2 = echarts.init(document.getElementById('choice'));
@@ -63,6 +105,7 @@
                                 title: {
                                     text: '选择题成绩分布图'
                                 },
+                                tooltip: {}, <!-- 鼠标悬停显示数据 -->
                                 legend: {
                                     data:['成绩']
                                 },
@@ -90,6 +133,7 @@
                             title: {
                                 text: '填空题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -117,6 +161,7 @@
                             title: {
                                 text: '第17题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -143,6 +188,7 @@
                             title: {
                                 text: '第18题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -169,6 +215,7 @@
                             title: {
                                 text: '第19题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -195,6 +242,7 @@
                             title: {
                                 text: '第20题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -221,6 +269,7 @@
                             title: {
                                 text: '第21题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -247,6 +296,7 @@
                             title: {
                                 text: '第22题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -273,6 +323,7 @@
                             title: {
                                 text: '第23题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -302,6 +353,7 @@
                             legend: {
                                 data:['成绩']
                             },
+                            tooltip: {},
                             xAxis: {},
                             yAxis: {},
                             series: [{
@@ -325,6 +377,7 @@
                             title: {
                                 text: '第25题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -351,6 +404,7 @@
                             title: {
                                 text: '第26题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
@@ -377,6 +431,7 @@
                             title: {
                                 text: '第27题成绩分布图'
                             },
+                            tooltip: {},
                             legend: {
                                 data:['成绩']
                             },
