@@ -33,12 +33,17 @@ def scoreCharts(request):
         n91_100 = score.objects.filter(total__range = (91,100)).count()
         total = [n0_10, n11_20, n21_30, n31_40, n41_50, n51_60, n61_70, n71_80, n81_90, n91_100]
 
-        total2 = score.objects.values('total').order_by("total")  # 选择题图，以下类似
+        numStu = score.objects.count()  # 总人数
+        passed = n61_70 + n71_80 + n81_90 + n91_100
+        unpassed = numStu - passed
+        pieChart = [{'value':passed, 'name':'及格'},{'value':unpassed, 'name':'不及格'}]
+
+        total2 = score.objects.values('total').order_by("total")  # 总分图，以下类似
         toa = []
         for i in range(len(total2)):
             toa.append([i,total2[i]['total']])
 
-        choice = score.objects.values('choice').order_by("choice")  # 选择题图，以下类似
+        choice = score.objects.values('choice').order_by("choice")
         cho = []
         for i in range(len(choice)):
             cho.append([i,choice[i]['choice']])
@@ -61,7 +66,7 @@ def scoreCharts(request):
                 tmp.append([j,queId[i][j][ID]])
             res.append(tmp)
 
-        return render(request,"scoreCharts.html",{'res':total, 'total2':toa, 'choice':cho,
+        return render(request,"scoreCharts.html",{'res':total, 'pie':pieChart, 'total2':toa, 'choice':cho,
                                                 'blank':bla, 'q17':res[0],'q18':res[1], 'q19':res[2],
                                                  'q20':res[3], 'q21':res[4], 'q22':res[5],'q23':res[6],
                                                  'q24':res[7], 'q25':res[8], 'q26':res[9], 'q27':res[10]}) 

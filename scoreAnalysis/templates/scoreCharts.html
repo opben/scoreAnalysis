@@ -5,6 +5,7 @@
         <div class="search-group">
             <ul id="myTab" class="nav nav-tabs">
                 <li class="active"><a href="#total" data-toggle="tab">分段统计</a></li>
+                <li><a href="#pass" data-toggle="tab">及格情况</a></li>
                 <li><a href="#total2" data-toggle="tab">总分</a></li>
                 <li><a href="#choice" data-toggle="tab">选择</a></li>
                 <li><a href="#blank" data-toggle="tab">填空</a></li>
@@ -53,6 +54,49 @@
 
                         // 使用刚指定的配置项和数据显示图表。
                         myChart1.setOption(option);
+                    </script>
+                </div>
+                <div class="charts tab-pane fade in active" id="pass" >
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart16 = echarts.init(document.getElementById('pass'));
+
+                        // 指定图表的配置项和数据
+                        var option = {
+                            title : {
+                                text: '该课程及格情况统计',
+                                x:'center'
+                            },
+                            tooltip : {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c}人 ({d}%)"
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                left: 'left',
+                                data: ['及格','不及格']
+                            },
+                            series : [
+                                {
+                                    name: '及格情况',
+                                    type: 'pie',
+                                    radius : '55%',
+                                    center: ['50%', '60%'],
+                                    data:{{ pie|safe }},
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                        }
+                        ]
+                        };
+
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart16.setOption(option);
                     </script>
                 </div>
                 <div class="charts tab-pane fade in active" id="total2" >
